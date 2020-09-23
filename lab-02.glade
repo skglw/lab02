@@ -220,7 +220,7 @@
             <property name="halign">center</property>
             <property name="row_homogeneous">True</property>
             <child>
-              <object class="GtkEntry" id="eNum3">
+              <object class="GtkEntry" id="eNumTr">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="tooltip_text" translatable="yes">number only</property>
