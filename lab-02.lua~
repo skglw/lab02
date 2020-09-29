@@ -10,7 +10,7 @@ ui.wnd.on_destroy = gtk.main_quit
 ui.wnd:show_all()
 
 
-dofile('math-round.lua')
+--dofile('math-round.lua')
 
 function ui.eNum1:on_changed()
 num1 = tonumber(ui.eNum1.text)
