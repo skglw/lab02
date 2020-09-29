@@ -9,6 +9,7 @@ ui.wnd.title = 'lab-02-zhuravleva'
 ui.wnd.on_destroy = gtk.main_quit
 ui.wnd:show_all()
 
+
 dofile('math-round.lua')
 
 function ui.eNum1:on_changed()
@@ -29,7 +30,7 @@ end
 
 function ui.eNumTr:on_changed()
 num3 = tonumber(ui.eNumTr.text)
-if (type(numTr)~=type(123))
+if (type(num3)~=type(123))
 then ui.lNumTr.label="put the NUMBER here"
 else ui.lNumTr.label="trigonometric calculation"
 end
@@ -60,37 +61,65 @@ end
 function ui.btnSin:on_clicked(...)
 num3 = tonumber(ui.eNumTr.text)
 num3 = math.rad(num3)
-ui.resTr.label = math.sin(num3)
+ui.res.label = math.sin(num3)
 end
 
 function ui.btnCos:on_clicked(...)
 num3 = tonumber(ui.eNumTr.text)
 num3 = math.rad(num3)
-ui.resTr.label = math.cos(num3)
+ui.res.label = math.cos(num3)
 end
 
 function ui.btnTan:on_clicked(...)
 num3 = tonumber(ui.eNumTr.text)
 num3 = math.rad(num3)
-ui.resTr.label =math.tan(num3)
+ui.res.label =math.tan(num3)
 end
 
 function ui.btnAsin:on_clicked(...)
 num3 = tonumber(ui.eNumTr.text)
 num3 = math.rad(num3)
-ui.resTr.label =math.asin(num3)
+ui.res.label =math.asin(num3)
 end
 
 function ui.btnAcos:on_clicked(...)
 num3 = tonumber(ui.eNumTr.text)
 num3 = math.rad(num3)
-ui.resTr.label =math.acos(num3)
+ui.res.label =math.acos(num3)
 end
 
 function ui.btnAtan:on_clicked(...)
 num3 = tonumber(ui.eNumTr.text)
 num3 = math.rad(num3)
-ui.resTr.label =math.atan(num3)
+ui.res.label =math.atan(num3)
 end
 
+function ui.btnMS:on_clicked(...)
+if buffer~=nil then
+buffer[#buffer+1] =tonumber(ui.res.label) 
+else buffer={tonumber(ui.res.label) }
+end
+end
+
+function ui.btnMC:on_clicked(...)
+buffer[1] = nil
+end
+
+function ui.btnMR:on_clicked(...)
+ui.res.label = buffer[#buffer]
+end
+
+function ui.btnMAdd:on_clicked(...)
+ui.res.label = buffer[#buffer] + tonumber(ui.res.label)
+end
+
+function ui.btnMSub:on_clicked(...)
+ui.res.label =  tonumber(ui.res.label) - buffer[#buffer]
+end
+
+function ui.btnC:on_clicked(...)
+if #buffer~=0 then
+buffer[#buffer] =nil
+end
+end
 gtk.main()
