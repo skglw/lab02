@@ -1,13 +1,25 @@
 #!/bin/lua5.3
 lgi = require 'lgi'
 gtk = lgi.Gtk
+gdk = lgi.Gdk
 gtk.init()
 bld = gtk.Builder()
 bld:add_from_file('lab-02.glade')
+
+prov = gtk.CssProvider()
+prov:load_from_path('lab02.css')
+
+ctx = gtk.StyleContext()
+scr = gdk.Screen.get_default()
+ctx.add_provider_for_screen(scr, prov, gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
+
 ui = bld.objects
+
+
 ui.wnd.title = 'lab-02-zhuravleva'
 ui.wnd.on_destroy = gtk.main_quit
 ui.wnd:show_all()
+
 
 
 --dofile('math-round.lua')
@@ -52,6 +64,7 @@ num1 = tonumber(ui.eNum1.text)
 num2 = tonumber(ui.eNum2.text)
 ui.res.label =  num1 * num2
 end
+
 function ui.btnDiv:on_clicked(...)
 num1 = tonumber(ui.eNum1.text)
 num2 = tonumber(ui.eNum2.text)

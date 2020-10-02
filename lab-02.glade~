@@ -320,8 +320,11 @@
                 <property name="tooltip_text" translatable="yes">here will be your result</property>
                 <property name="label" translatable="yes">res: </property>
                 <attributes>
-                  <attribute name="font-desc" value="Sans Bold Italic 16"/>
+                  <attribute name="font-desc" value="Sans Bold 16"/>
                 </attributes>
+                <style>
+                  <class name="label"/>
+                </style>
               </object>
               <packing>
                 <property name="expand">False</property>
